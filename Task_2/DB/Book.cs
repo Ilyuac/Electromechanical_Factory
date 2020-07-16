@@ -23,7 +23,14 @@ namespace Task_2.DB
 
         public Book(string nameBook)
         {
-            NameBook = nameBook ?? throw new ArgumentNullException(nameof(nameBook));
+            try
+            {
+                NameBook = nameBook ?? throw new ArgumentNullException(nameof(nameBook),"Имя книги не может быть null.");
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
